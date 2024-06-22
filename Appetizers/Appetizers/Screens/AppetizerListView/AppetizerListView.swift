@@ -11,13 +11,19 @@ struct AppetizerListView: View {
     
     @StateObject var viewModel = AppetizerListViewModel()
     
+    
     var body: some View {
         ZStack {
             NavigationStack {
                 List(viewModel.appetizers) { appetizer in
                     AppetizerListCell(appetizer: appetizer)
+                        .onTapGesture {
+                            viewModel.selectedAppetizer = appetizer
+                            viewModel.isShowingDetail = true
+                        }
                 }
                 .navigationTitle("🍟 Appetizers")
+                .disabled(viewModel.isShowingDetail)
             }
             .onAppear {
                 viewModel.getAppetizers()
@@ -25,8 +31,14 @@ struct AppetizerListView: View {
             .alert(isPresented: $viewModel.isShowingAlert, error: viewModel.errorItem) {_ in } message: { error in
                 Text(error.failureReason)
             }
+            .blur(radius: viewModel.isShowingDetail ? 20 : 0)
             
-            if(viewModel.isLoading) {
+            if viewModel.isShowingDetail {
+                AppetizerDetailView(appetizer: viewModel.selectedAppetizer ?? MockData.sampleAppetizer,
+                                    isShowingDetail: $viewModel.isShowingDetail)
+            }
+            
+            if viewModel.isLoading {
                 LoadingView()
             }
         }
