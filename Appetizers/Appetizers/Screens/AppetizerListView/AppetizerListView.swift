@@ -17,15 +17,17 @@ struct AppetizerListView: View {
             NavigationStack {
                 List(viewModel.appetizers) { appetizer in
                     AppetizerListCell(appetizer: appetizer)
+                        .listRowSeparator(.hidden)
                         .onTapGesture {
                             viewModel.selectedAppetizer = appetizer
                             viewModel.isShowingDetail = true
                         }
                 }
+                .listStyle(.plain)
                 .navigationTitle("🍟 Appetizers")
                 .disabled(viewModel.isShowingDetail)
             }
-            .onAppear {
+            .task {
                 viewModel.getAppetizers()
             }
             .alert(isPresented: $viewModel.isShowingAlert, error: viewModel.errorItem) {_ in } message: { error in
