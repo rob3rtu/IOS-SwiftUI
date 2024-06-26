@@ -9,9 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State var value = 3.4
     
     var body: some View {
-        Text("Hello there")
+        Form {
+            Section {
+                TextField("Amount", value: $value, format: .currency(code: "USD"))
+            }
+        }
     }
 }
 
