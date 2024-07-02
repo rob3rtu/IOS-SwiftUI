@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A6C71A72C33249F00AF3143 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6C71A62C33249F00AF3143 /* Film.swift */; };
+		1A6C71A92C33266F00AF3143 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6C71A82C33266F00AF3143 /* Errors.swift */; };
 		1AD514782C3083430089AC07 /* StarWarsWikiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD514772C3083430089AC07 /* StarWarsWikiApp.swift */; };
 		1AD5147A2C3083430089AC07 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD514792C3083430089AC07 /* ContentView.swift */; };
 		1AD5147C2C3083440089AC07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5147B2C3083440089AC07 /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A6C71A62C33249F00AF3143 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
+		1A6C71A82C33266F00AF3143 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		1AD514742C3083430089AC07 /* StarWarsWiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWarsWiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AD514772C3083430089AC07 /* StarWarsWikiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsWikiApp.swift; sourceTree = "<group>"; };
 		1AD514792C3083430089AC07 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,6 +40,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A6C71A52C33248D00AF3143 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1A6C71A62C33249F00AF3143 /* Film.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		1AD5146B2C3083430089AC07 = {
 			isa = PBXGroup;
 			children = (
@@ -55,12 +67,14 @@
 		1AD514762C3083430089AC07 /* StarWarsWiki */ = {
 			isa = PBXGroup;
 			children = (
+				1A6C71A52C33248D00AF3143 /* Models */,
 				1AD514772C3083430089AC07 /* StarWarsWikiApp.swift */,
 				1AD514792C3083430089AC07 /* ContentView.swift */,
 				1AD5147B2C3083440089AC07 /* Assets.xcassets */,
 				1AD5147D2C3083440089AC07 /* Preview Content */,
 				1AD514852C3085A40089AC07 /* SectionDetails.swift */,
 				1AD514872C308D820089AC07 /* apiClient.swift */,
+				1A6C71A82C33266F00AF3143 /* Errors.swift */,
 			);
 			path = StarWarsWiki;
 			sourceTree = "<group>";
@@ -143,9 +157,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A6C71A72C33249F00AF3143 /* Film.swift in Sources */,
 				1AD514862C3085A40089AC07 /* SectionDetails.swift in Sources */,
 				1AD5147A2C3083430089AC07 /* ContentView.swift in Sources */,
 				1AD514782C3083430089AC07 /* StarWarsWikiApp.swift in Sources */,
+				1A6C71A92C33266F00AF3143 /* Errors.swift in Sources */,
 				1AD514882C308D820089AC07 /* apiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

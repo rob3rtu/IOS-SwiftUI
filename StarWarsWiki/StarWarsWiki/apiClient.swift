@@ -14,4 +14,24 @@ final class apiClient {
     
     static let baseURL = "https://swapi.dev/api/"
     
+    private let filmsURL = baseURL + "films"
+    
+    
+    
+    func getMovies () async throws -> [Film] {
+        guard let url = URL(string: filmsURL) else {
+            throw Errors.somethingWentWrong
+        }
+        
+        let (data, _) = try await URLSession.shared.data(from: url)
+        
+        do {
+            let decoder = JSONDecoder()
+            let decodedResponse = try decoder.decode(FilmResponse.self, from: data)
+            return decodedResponse.results
+        } catch {
+            throw Errors.somethingWentWrong
+        }
+    }
+    
 }

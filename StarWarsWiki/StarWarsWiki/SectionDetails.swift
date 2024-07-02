@@ -10,9 +10,12 @@ import SwiftUI
 struct SectionDetails: View {
     
     @Environment(\.dismiss) private var dismiss
+    @State private var data: [Film] = []
     var section: String
     
     var body: some View {
+        
+        
         
         Text("Section: \(section)")
             .navigationTitle(section)
