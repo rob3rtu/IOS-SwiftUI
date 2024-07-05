@@ -14,26 +14,37 @@ struct SectionDetails: View {
     var section: String
     
     var body: some View {
-        
-        
-        
-        Text("Section: \(section)")
-            .navigationTitle(section)
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden()
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button(action: {
-                        dismiss()
-                    }, label: {
-                        HStack {
-                            Image(systemName: "chevron.left")
-                            Text("Back")
-                        }
-                    })
-                }
+        List(data, id: \.episode_id) { film in
+            Text(film.title)
+        }
+        .navigationTitle(section)
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button(action: {
+                    dismiss()
+                }, label: {
+                    HStack {
+                        Image(systemName: "chevron.left")
+                        Text("Back")
+                    }
+                })
             }
-        
+        }
+        .task {
+            getFilms()
+        }
+    }
+    
+    func getFilms () {
+        Task {
+            do {
+                data = try await apiClient.shared.getMovies()
+            } catch {
+                print(error)
+            }
+        }
     }
 }
 
